@@ -19,7 +19,7 @@ public class LoginTest {
 
         WebElement emailInput = driver.findElement(By.id("email"));
         emailInput.clear();
-        emailInput.sendKeys("example@example.com");
+        emailInput.sendKeys("a@example.com");
 
         WebElement passwordInput = driver.findElement(By.id("password"));
         passwordInput.clear();
@@ -44,7 +44,7 @@ public class LoginTest {
         okbut.click();
 
         emailInput.clear();
-        emailInput.sendKeys("ab@example.com");
+        emailInput.sendKeys("b@example.com");
 
         passwordInput.clear();
         passwordInput.sendKeys("password123"); // right password

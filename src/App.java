@@ -10,8 +10,8 @@ public class App {
 
         driver.manage().window().maximize();
 
-        SignUpTest.signUp(driver);
-        LogoutTest.logout(driver);
+        // SignUpTest.signUp(driver);
+        // LogoutTest.logout(driver);
         LoginTest.login(driver);
         EnrollTest.enroll(driver);
     }

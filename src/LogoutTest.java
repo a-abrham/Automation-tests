@@ -24,9 +24,9 @@ public class LogoutTest {
             WebElement logout = driver.findElement(
                     By.xpath("//*[@id=\"root\"]/div/div[1]/div/div/div/div[2]/div/ul/li[3]/div/div/div[2]/button"));
             logout.click();
-            System.out.println("Logout Test Passed ✅");
+            System.out.println("Logout Test Passed");
         } catch (Exception e) {
-            System.out.println("Logout Test Failed ❌: " + e.getMessage());
+            System.out.println("Logout Test Failed: " + e.getMessage());
         }
     }
 }

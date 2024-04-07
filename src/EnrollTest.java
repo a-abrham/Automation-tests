@@ -68,9 +68,25 @@ public class EnrollTest {
 
         if (buttonText.contains("Resume")) {
             System.out.println("Test Passed: user is able to resume.");
-            element.click();
         } else {
+            element = driver
+                    .findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div/div[1]/div/div[1]/div[2]/button"));
+
             element.click();
+
+            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions
+                    .presenceOfElementLocated(By.xpath(
+                            "/html/body/div[3]/div/div[2]")));
+
+            element = driver.findElement(By.xpath("/html/body/div[3]/div/div[2]"));
+            String elementText = element.getText();
+            if (elementText.contains("Enrolled")) {
+                System.out.println("passed");
+
+                element = driver.findElement(By.xpath("/html/body/div[3]/div/div[4]/div/button"));
+                element.click();
+            }
 
         }
 

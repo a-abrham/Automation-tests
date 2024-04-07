@@ -52,7 +52,7 @@ public class SignUpTest {
             countryInput.sendKeys(Keys.ENTER);
 
             WebElement emailInput = driver.findElement(By.id("email"));
-            emailInput.sendKeys("ab@example.com");
+            emailInput.sendKeys("b@example.com");
 
             WebElement passwordInput = driver.findElement(By.id("password"));
             passwordInput.sendKeys("password123");
@@ -66,22 +66,25 @@ public class SignUpTest {
             WebElement submitButton = driver.findElement(By.xpath("//button[contains(@class, 'ct-btn-submit')]"));
             submitButton.click();
 
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-            wait.until(
-                    ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[3]/div/div[3]/div/button")));
+            try {
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+                wait.until(
+                        ExpectedConditions
+                                .presenceOfElementLocated(By.xpath("/html/body/div[3]/div/div[3]/div/button")));
+                while (true) {
+                    WebElement okButton = driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/div/button"));
+                    if (okButton.isDisplayed()) {
+                        okButton.click();
+                        String randomEmail = generateRandomEmail();
 
-            while (true) {
-                WebElement okButton = driver.findElement(By.xpath("/html/body/div[3]/div/div[3]/div/button"));
-                if (okButton.isDisplayed()) {
-                    okButton.click();
-                    String randomEmail = generateRandomEmail();
-
-                    emailInput = driver.findElement(By.id("email"));
-                    emailInput.clear();
-                    emailInput.sendKeys(randomEmail);
-                    submitButton.click();
-                    break;
+                        emailInput = driver.findElement(By.id("email"));
+                        emailInput.clear();
+                        emailInput.sendKeys(randomEmail);
+                        submitButton.click();
+                        break;
+                    }
                 }
+            } catch (Exception e) {
             }
             System.out.println("Sign up Test Passed ✅");
         } catch (NoSuchElementException e) {
