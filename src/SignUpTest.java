@@ -52,7 +52,7 @@ public class SignUpTest {
             countryInput.sendKeys(Keys.ENTER);
 
             WebElement emailInput = driver.findElement(By.id("email"));
-            emailInput.sendKeys("b@example.com");
+            emailInput.sendKeys("d@example.com");
 
             WebElement passwordInput = driver.findElement(By.id("password"));
             passwordInput.sendKeys("password123");
@@ -67,7 +67,7 @@ public class SignUpTest {
             submitButton.click();
 
             try {
-                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+                WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
                 wait.until(
                         ExpectedConditions
                                 .presenceOfElementLocated(By.xpath("/html/body/div[3]/div/div[3]/div/button")));
@@ -86,11 +86,11 @@ public class SignUpTest {
                 }
             } catch (Exception e) {
             }
-            System.out.println("Sign up Test Passed ✅");
+            System.out.println("Sign up Test Passed");
         } catch (NoSuchElementException e) {
-            System.out.println("Sign up Test Failed ❌: Element not found - " + e.getMessage());
+            System.out.println("Sign up Test Failed: Element not found - " + e.getMessage());
         } catch (Exception e) {
-            System.out.println("Sign up Test Failed ❌: " + e.getMessage());
+            System.out.println("Sign up Test Failed: " + e.getMessage());
         }
     }
 }

@@ -44,7 +44,7 @@ public class LoginTest {
         okbut.click();
 
         emailInput.clear();
-        emailInput.sendKeys("b@example.com");
+        emailInput.sendKeys("d@example.com");
 
         passwordInput.clear();
         passwordInput.sendKeys("password123"); // right password
